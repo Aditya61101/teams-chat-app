@@ -23,7 +23,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { useParams, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import {
     Select,
     SelectContent,
@@ -48,37 +48,38 @@ const formSchema = z.object({
     type: z.nativeEnum(ChannelType)
 });
 
-export const CreateChannelModal = () => {
-    const dispatch = useDispatch();
+export const EditChannelModal = () => {
+    // const { isOpen, onClose, type, data } = useModal();
     const { isOpen, type, data } = useSelector((state: RootState) => state.modal);
+    const dispatch = useDispatch();
     const router = useRouter();
-    const params = useParams();
-    const isModalOpen = isOpen && type === "createChannel";
-    const { channelType } = data;
+
+    const isModalOpen = isOpen && type === "editChannel";
+    const { channel, server } = data;
 
     const form = useForm({
         resolver: zodResolver(formSchema),
         defaultValues: {
             name: "",
-            type: channelType || ChannelType.TEXT,
+            type: channel?.type || ChannelType.TEXT,
         }
     });
-    // if there is a channel type, set the default value to that...
+
     useEffect(() => {
-        if (channelType) {
-            form.setValue("type", channelType);
-        } else {
-            form.setValue("type", ChannelType.TEXT);
+        if (channel) {
+            form.setValue("name", channel.name);
+            form.setValue("type", channel.type);
         }
-    }, [channelType, form]);
+    }, [form, channel]);
 
     const isLoading = form.formState.isSubmitting;
 
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
         try {
-            const queryString = params?.serverId ? `serverId=${encodeURIComponent(params?.serverId as string)}` : '';
-            const url = `/api/channels${queryString ? `?${queryString}` : ''}`;
-            await axios.post(url, values);
+            const queryStr = server?.id ? `?serverId=${encodeURIComponent(server?.id)}` : "";
+            const url = `/api/channels/${channel?.id}${queryStr}`;
+
+            await axios.patch(url, values);
 
             form.reset();
             router.refresh();
@@ -98,7 +99,7 @@ export const CreateChannelModal = () => {
             <DialogContent className="bg-white text-black p-0 overflow-hidden">
                 <DialogHeader className="pt-8 px-6">
                     <DialogTitle className="text-2xl text-center font-bold">
-                        Create Channel
+                        Edit Channel
                     </DialogTitle>
                 </DialogHeader>
                 <Form {...form}>
@@ -163,7 +164,7 @@ export const CreateChannelModal = () => {
                         </div>
                         <DialogFooter className="bg-gray-100 px-6 py-4">
                             <Button variant="primary" disabled={isLoading}>
-                                Create
+                                Save
                             </Button>
                         </DialogFooter>
                     </form>
