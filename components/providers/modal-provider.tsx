@@ -5,6 +5,9 @@ import { useEffect, useState } from "react";
 import { InviteModal } from "../modals/inviteModal";
 import { EditServerModal } from "../modals/editServer";
 import { MembersModal } from "../modals/membersModal";
+import { CreateChannelModal } from "../modals/createChannel";
+import { LeaveServerModal } from "../modals/leaveServer";
+import { DeleteServerModal } from "../modals/deleteServer";
 
 export const ModalProvider = () => {
     const [isMounted, setIsMounted] = useState(false);
@@ -22,6 +25,9 @@ export const ModalProvider = () => {
             <InviteModal />
             <EditServerModal />
             <MembersModal />
+            <CreateChannelModal/>
+            <LeaveServerModal/>
+            <DeleteServerModal/>
         </>
     )
 }

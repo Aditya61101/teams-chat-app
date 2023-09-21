@@ -1,17 +1,18 @@
 import { ChannelType, MemberRole } from "@prisma/client";
 import { redirect } from "next/navigation";
 import { Hash, Mic, ShieldAlert, ShieldCheck, Video } from "lucide-react";
-
+//shadcn-components
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
+//libs
 import { currentProfile } from "@/lib/currentProfile";
 import { db } from "@/lib/db";
-
+//server-components
 import { ServerHeader } from "./serverHeader";
+import { ServerSearch } from "./serverSearch";
 import { ServerChannel } from "./serverChannel";
-// import { ServerSearch } from "./serverSearch";
-// import { ServerSection } from "./serverSection";
-// import { ServerMember } from "./serverMember";
+import { ServerSection } from "./serverSection";
+import { ServerMember } from "./serverMember";
 
 type ServerSidebarProps = {
     serverId: string;
@@ -77,7 +78,7 @@ export const ServerSidebar = async ({
                 server={server}
                 role={role}
             />
-            {/* <ScrollArea className="flex-1 px-3">
+            <ScrollArea className="flex-1 px-3">
                 <div className="mt-2">
                     <ServerSearch
                         data={[
@@ -200,7 +201,7 @@ export const ServerSidebar = async ({
                         </div>
                     </div>
                 )}
-            </ScrollArea> */}
+            </ScrollArea>
         </div>
     )
 }
