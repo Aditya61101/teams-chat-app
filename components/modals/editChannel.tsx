@@ -5,7 +5,6 @@ import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { ChannelType } from "@prisma/client";
-
 import {
     Dialog,
     DialogContent,
@@ -40,8 +39,7 @@ const formSchema = z.object({
     name: z.string().min(1, {
         message: "Channel name is required."
     }).refine(
-        name => name !== "general",
-        {
+        name => name !== "general", {
             message: "Channel name cannot be 'general'"
         }
     ),
@@ -49,11 +47,9 @@ const formSchema = z.object({
 });
 
 export const EditChannelModal = () => {
-    // const { isOpen, onClose, type, data } = useModal();
     const { isOpen, type, data } = useSelector((state: RootState) => state.modal);
     const dispatch = useDispatch();
     const router = useRouter();
-
     const isModalOpen = isOpen && type === "editChannel";
     const { channel, server } = data;
 
