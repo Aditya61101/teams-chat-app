@@ -1,13 +1,16 @@
+
 import { redirectToSignIn } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 import { ChannelType } from "@prisma/client";
 
 import { currentProfile } from "@/lib/currentProfile";
+import { db } from "@/lib/db";
+
 import ChatHeader from "@/components/chat/chatHeader";
 import ChatInput from "@/components/chat/chatInput";
 import ChatMessages from "@/components/chat/chatMessages";
+
 import MediaRoom from "@/components/mediaRoom";
-import { db } from "@/lib/db";
 
 type Props = {
     params: {
@@ -49,7 +52,7 @@ const ChannelIdPage = async ({
                 serverId={channel.serverId}
                 type="channel"
             />
-            {/* {channel.type === ChannelType.TEXT && (
+            {channel.type === ChannelType.TEXT && (
                 <>
                     <ChatMessages
                         member={member}
@@ -76,7 +79,7 @@ const ChannelIdPage = async ({
                     />
                 </>
             )}
-            {channel.type === ChannelType.AUDIO && (
+            {/* {channel.type === ChannelType.AUDIO && (
                 <MediaRoom
                     chatId={channel.id}
                     video={false}

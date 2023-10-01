@@ -4,7 +4,7 @@ import Image from "next/image";
 import { UploadDropzone } from "@/lib/uploadThing";
 import "@uploadthing/react/styles.css";
 
-interface FileUploadProps {
+type Props = {
     onChange: (url?: string) => void;
     value: string;
     endpoint: "messageFile" | "serverImage"
@@ -14,7 +14,7 @@ export const FileUpload = ({
     onChange,
     value,
     endpoint
-}: FileUploadProps) => {
+}: Props) => {
     const fileType = value?.split(".").pop();
 
     if (value && fileType !== "pdf") {

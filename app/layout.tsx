@@ -7,6 +7,8 @@ import { ThemeProvider } from "@/components/providers/theme-provider"
 import { ReduxProvider } from '@/redux/Provider'
 import { ModalProvider } from '@/components/providers/modal-provider'
 import { cn } from '@/lib/utils'
+import { SocketProvider } from '@/components/providers/socket-provider'
+import { QueryProvider } from '@/components/providers/query-provider'
 
 const sans = Open_Sans({ subsets: ['latin'] })
 
@@ -32,8 +34,12 @@ export default function RootLayout({
               defaultTheme="dark"
               enableSystem={true}
               storageKey="chat-theme">
-              <ModalProvider />
-              {children}
+              <SocketProvider>
+                <ModalProvider />
+                <QueryProvider>
+                  {children}
+                </QueryProvider>
+              </SocketProvider>
             </ThemeProvider>
           </ReduxProvider>
         </body>

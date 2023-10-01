@@ -2,6 +2,7 @@ import React from 'react'
 import { UserAvatar } from '../userAvatar';
 import { Hash } from 'lucide-react';
 import { MobileToggle } from '../mobileToggle';
+import { SocketIndicator } from '../socketIndicator';
 
 type Props = {
     serverId: string;
@@ -29,12 +30,12 @@ const chatHeader = ({ serverId,
             <p className="font-semibold text-md text-black dark:text-white">
                 {name}
             </p>
-            {/* <div className="ml-auto flex items-center">
-        {type === "conversation" && (
+            <div className="ml-auto flex items-center">
+                {/* {type === "conversation" && (
           <ChatVideoButton />
-        )}
-        <SocketIndicator />
-      </div> */}
+        )} */}
+                <SocketIndicator />
+            </div>
         </div>
     )
 }
