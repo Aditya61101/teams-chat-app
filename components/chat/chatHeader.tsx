@@ -3,6 +3,7 @@ import { UserAvatar } from '../userAvatar';
 import { Hash } from 'lucide-react';
 import { MobileToggle } from '../mobileToggle';
 import { SocketIndicator } from '../socketIndicator';
+import { ChatVideoButton } from './chatVideoButton';
 
 type Props = {
     serverId: string;
@@ -11,10 +12,7 @@ type Props = {
     imageUrl?: string;
 }
 
-const chatHeader = ({ serverId,
-    name,
-    type,
-    imageUrl }: Props) => {
+const chatHeader = ({ serverId, name, type, imageUrl }: Props) => {
     return (
         <div className="text-md font-semibold px-3 flex items-center h-12 border-neutral-200 dark:border-neutral-800 border-b-2">
             <MobileToggle serverId={serverId} />
@@ -31,9 +29,9 @@ const chatHeader = ({ serverId,
                 {name}
             </p>
             <div className="ml-auto flex items-center">
-                {/* {type === "conversation" && (
-          <ChatVideoButton />
-        )} */}
+                {type === "conversation" && (
+                    <ChatVideoButton />
+                )}
                 <SocketIndicator />
             </div>
         </div>

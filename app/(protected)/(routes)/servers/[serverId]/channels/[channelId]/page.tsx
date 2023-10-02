@@ -79,7 +79,7 @@ const ChannelIdPage = async ({
                     />
                 </>
             )}
-            {/* {channel.type === ChannelType.AUDIO && (
+            {channel.type === ChannelType.AUDIO && (
                 <MediaRoom
                     chatId={channel.id}
                     video={false}
@@ -92,7 +92,7 @@ const ChannelIdPage = async ({
                     video={true}
                     audio={true}
                 />
-            )} */}
+            )}
         </div>
     );
 }
