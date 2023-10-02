@@ -2,7 +2,6 @@
 import { FileIcon, X } from "lucide-react";
 import Image from "next/image";
 import { UploadDropzone } from "@/lib/uploadThing";
-import "@uploadthing/react/styles.css";
 
 type Props = {
     onChange: (url?: string) => void;
