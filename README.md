@@ -1,34 +1,63 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Teams Chat App
 
-## Getting Started
+This project is a clone of the popular communication platform Discord. It aims to replicate the core features and user interface of Discord.
 
-First, run the development server:
+## Table of Contents
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+- [Features](#features)
+- [Demo](#demo)
+- [Installation](#installation)
+- [Contributing](#contributing)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Server and channels creation**: Create servers and channels and also invite users to your server using the invite link.
+- **Real-time Chat**: Engage in real-time conversations with other users through voice, video, and text channels.
+- **User Authentication**: Securely sign up and log in to your account using clerk-auth.
+- **User Roles**: A user can be an admin, a moderator, or a simple user.
+- **Voice Channels**: Create and join voice channels for voice communication.
+- **Video Channels**: Create and join video channels for video communication.
+- **User Profiles**: Customize your profile and avatar.
+- **File Sharing**: Share files with other users.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+You can explore many more features by visiting the web app.
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+## Demo
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+[The web app is live 🎉](https://teams-chat-app.up.railway.app/)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Installation
 
-## Deploy on Vercel
+Follow these steps to set up the project locally:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Clone the repository:**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+  1. git clone https://github.com/Aditya61101/teams-chat-app.git
+  2. cd teams-chat-app
+
+- **Install the dependencies:** npm install
+
+- **Configure the environment variables by creating a .env file:**
+    1. NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY="your_key"
+    2. CLERK_SECRET_KEY="your_key"
+    3. NEXT_PUBLIC_CLERK_SIGN_IN_URL=/login
+    4. NEXT_PUBLIC_CLERK_SIGN_UP_URL=/register
+    5. NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/
+    6. NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/
+    7. DATABASE_URL="mongodb_atlas_url"
+    8. UPLOADTHING_SECRET="your_key"
+    9. UPLOADTHING_APP_ID="your_key"
+    10. LIVEKIT_API_KEY ="your_key" 
+    11. LIVEKIT_API_SECRET ="your_key" 
+    12. NEXT_PUBLIC_LIVEKIT_URL ="your_key"
+
+- **Run the app locally:** npm run dev
+
+## Contributing
+
+Contributions are always welcome!
+
+There are no strict guidelines for the contributions, but one should adhere to some basic rules of contributions.
+
+If you find any issues or want to add features, create a branch with your work and make a pull request to the main branch. If we find the feature usable we will merge it into our main branch.
