@@ -25,7 +25,7 @@ You can explore many more features by visiting the web app.
 
 ## Demo
 
-[The web app is live 🎉](https://teams-chat-app.up.railway.app/)
+[The web app is live 🎉](http://teams-chat-app.vercel.app/)
 
 ## Installation
 
